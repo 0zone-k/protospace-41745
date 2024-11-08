@@ -30,7 +30,7 @@
         </div>
       </div>
       <div class="prototype__comments">
-        <% if user_signed_in? && current_user.id == @prototype.user_id %>
+        <% if user_signed_in?%>
           <%= form_with(model: [@prototype, @comment] ) do |f| %>
             <div class="field">
               <%= f.label :content, "コメント" %><br />
@@ -48,7 +48,7 @@
               <%# <%= " コメントのテキスト "%>
              <% @comments.each do |comment| %>
              <%= comment.content %>
-          (<%= link_to "comment.user_id",  "/users/#{prototype.user.id}" ,class: :comment_user %>)
+          (<%= link_to "#{comment.user_id}",  "/users/#{@prototype.user.id}" ,class: :comment_user %>)
             </li>       
           <% end %>
         </ul>
